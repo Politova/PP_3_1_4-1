@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Userpage</title>
+    <title>Tittle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -29,12 +29,17 @@
 </nav>
 
 
+<!--Вставка-->
 <div class="row no-gutters ">
 
     <nav id="sidebarMenu" class="col-md-2 col-lg-2 d-md-block sidebar collapse">
         <div class="position-sticky pt-2">
             <ul class="nav nav-pills flex-column">
-
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/admin">
+                        Admin
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">
                         User
@@ -44,6 +49,7 @@
             </ul>
         </div>
     </nav>
+
     <div class="col-md-10 bg-light">
         <div class="tab-content">
             <div class="container-fluid">

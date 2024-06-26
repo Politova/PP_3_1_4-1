@@ -4,8 +4,11 @@
     <title>Spring Security Example</title>
 </head>
 <body>
-<h1>Welcome to Index PAGE!</h1>
+<h1>Welcome to Spring Security demo!</h1>
 
+<form th:action="@{/login}" method="get">
+    <input type="submit" value="Sign in">
+</form>
 
 </body>
 </html>
