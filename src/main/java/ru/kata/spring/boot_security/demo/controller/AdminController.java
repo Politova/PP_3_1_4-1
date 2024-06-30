@@ -9,7 +9,8 @@ import java.security.Principal;
 
 
 @Controller
-@RequestMapping(name = "/admin")
+@RequestMapping("/admin")
+@GetMapping("/admin")
 public class AdminController {
 
     private final UserService userService;
@@ -19,12 +20,12 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public String index() {
         return "index";
     }
 
-    @GetMapping("/admin")
+    @GetMapping()
     public String listUsers(Model model, Principal principal) {
         model.addAttribute("users", userService.getUsers());
         User user = userService.findByUsername(principal.getName());
@@ -33,13 +34,13 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/admin/{id}")
+    @GetMapping("/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.showUserById(id));
         return "admin";
     }
 
-    @GetMapping("/admin/new")
+    @GetMapping("/new")
     public String newUser(@ModelAttribute("newUser") User user) {
         return "/admin";
     }
@@ -50,20 +51,20 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String editUser(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.showUserById(id));
         model.addAttribute("allRoles", userService.findRoles());
         return "admin";
     }
 
-    @PatchMapping("/admin/{id}")
+    @PatchMapping("/{id}")
     public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
         userService.updateUserById(id, user);
         return "redirect:/admin";
     }
 
-    @DeleteMapping("/admin/{id}")
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUserById(id);
         return "redirect:/admin";
